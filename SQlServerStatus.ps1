@@ -1,4 +1,6 @@
 Add-Type -Path "C:\Program Files\Microsoft SQL Server\130\SDK\Assemblies\Microsoft.SqlServer.Smo.dll"
+Add-Type -Path "C:\Program Files\Microsoft SQL Server\130\SDK\Assemblies\MySQL.Data.dll"
+
 [boolean]$debug = $true;
 #Add-PSSnapin SqlServerCmdletSnapin110
 #Add-PSSnapin SqlServerProviderSnapin110
@@ -67,8 +69,9 @@ SERVERPROPERTY('Productversion') AS [ProductVersion],@@version as [Serverversion
 
 ##Connect to the data source using the connection details and T-SQL command we provided above, 
 ##and open the connection
-$connection = New-Object System.Data.SqlClient.SqlConnection $connectionDetails
+$connection = New-Object MySql.Data.MySqlClient.MySqlConnection $connectionDetails
 $command1 = New-Object system.data.sqlclient.sqlcommand $sql_server_info,$connection
+write-output "------";
 $connection.Open()
 
 ##Get the results of our command into a DataSet object, and close the connection
