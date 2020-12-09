@@ -3,12 +3,12 @@ Add-Type -Path "C:\Program Files\Microsoft SQL Server\130\SDK\Assemblies\Microso
 #Add-PSSnapin SqlServerCmdletSnapin110
 #Add-PSSnapin SqlServerProviderSnapin110
 cls
-write-host $servernames
+#write-host $servernames
 $starttime = Get-Date
 write-host $starttime
 
 #[string[]]$servernames = Get-Content -Path D:\scripts\ServersList.txt
-#[string[]]$servernames = "DWSQL1\ODS"
+[string[]]$servernames = "DWSQL1\ODS"
 foreach($servername in $servernames)
 {
 write-host Starting Server $servername
@@ -44,8 +44,8 @@ $colorTagTable = @{
                    } 
 
 
-$userid= $($env:username)
-$Password=$($env:password)
+$userid= "tfanet\sqlproduser"
+$Password="tf@SQLpr0dus3r"
 #$userid= $cred.username
 #$password=$cred.GetNetworkCredential().password
 ##Create a string variable with all our connection details 
