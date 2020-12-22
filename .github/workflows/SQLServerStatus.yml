@@ -19,4 +19,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: Powershell .\Azure_SQL.ps1
+      run: Powershell .\SQlServerStatus.ps1
