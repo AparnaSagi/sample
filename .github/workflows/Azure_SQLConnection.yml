@@ -1,0 +1,25 @@
+name: Azure SQL for GitHub Actions
+
+on:
+push:
+    branches: [ master ]
+workflow_dispatch:
+
+jobs:
+build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: azure/login@v1
+    with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+     - uses: azure/sql-action@v1
+      with:
+        server-name: srvr-azurepoc-2.database.windows.net
+        connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
+        dacpac-package: './Database.dacpac'
+
+    # Azure logout 
+- name: logout
+  run: |
+     az logout
