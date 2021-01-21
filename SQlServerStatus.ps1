@@ -9,7 +9,7 @@ $starttime = Get-Date
 write-host $starttime
 
 #[string[]]$servernames = Get-Content -Path D:\scripts\ServersList.txt
-[string[]]$servernames = "DWSQL1\ODS"
+[string[]]$servernames = "pwdbadmin5"
 foreach($servername in $servernames)
 {
 write-host Starting Server $servername
