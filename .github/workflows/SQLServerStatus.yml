@@ -17,6 +17,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    #- uses: actions/checkout@v1
+    - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: Powershell .\SQlServerStatus.ps1
+      run: Powershell .\sample.ps1
