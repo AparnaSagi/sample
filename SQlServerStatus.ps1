@@ -45,8 +45,8 @@ $colorTagTable = @{
                    } 
 
 
-$userid= "tfanet\sqlproduser"
-$Password="tf@SQLpr0dus3r"
+$userid= "sa"
+$Password="1apple@day"
 #$userid= $cred.username
 #$password=$cred.GetNetworkCredential().password
 ##Create a string variable with all our connection details 
