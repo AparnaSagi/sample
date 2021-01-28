@@ -45,8 +45,8 @@ $colorTagTable = @{
                    } 
 
 
-$userid= "sa"
-$Password="1apple@day"
+$userid= "${{ secrets.SQL_username }}"
+$Password="${{ secrets.SQL_password }}"
 #$userid= $cred.username
 #$password=$cred.GetNetworkCredential().password
 ##Create a string variable with all our connection details 
@@ -273,8 +273,8 @@ write-host $frag4
 
 ConvertTo-HTML -head $a -PostContent $frag1,$frag2,$frag3,$frag4 -PreContent '<h1 style="color:#2F4F4F"><center><U>SQL Server Heatlh Check Report</U></center></h1>'| Out-File $OutputFile_new
 
-$fromaddress = "satish.jagarlamudi@teachforamerica.org" 
-$toaddress = "satish.jagarlamudi@teachforamerica.org" 
+$fromaddress = "Aparna.sagi@teachforamerica.org" 
+$toaddress = "Aparna.sagi@teachforamerica.org" 
 $Subject = "SQL Server Status Report($dataSource)" 
 $body = Get-Content $OutputFile_new
 #$attachment = "D:\UWDBRSTR01.html" 
