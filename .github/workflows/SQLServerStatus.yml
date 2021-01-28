@@ -14,12 +14,11 @@ jobs:
   # This workflow contains a single job called "build"
   build:
 
-    runs-on: self-hosted
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
+    runs-on: self-hosted 
     env:
       SQL_USERNAME: ${{ secrets.SQL_username }}
       SQL_PASSWORD: ${{ secrets.SQL_password }}
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
       run: Powershell .\SQlServerStatus.ps1
