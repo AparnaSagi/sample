@@ -8,22 +8,16 @@ on:
   workflow_dispatch:
    #schedule:
     #- cron:  '*/15 * * * *'
-    inputs:
-      Servername:
-        description: 'Provide the name of SQL Instance'     
-        required: true
-        default: ''
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
-
     runs-on: self-hosted 
     env:
       SQL_USERNAME: ${{ secrets.SQL_username }}
       SQL_PASSWORD: ${{ secrets.SQL_password }}
-      SERVERNAME: ${{ github.event.inputs.Servername }}
+      
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
