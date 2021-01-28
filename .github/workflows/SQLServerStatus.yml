@@ -19,4 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
+    env:
+      SQL_USERNAME: ${{ secrets.SQL_username }}
+      SQL_PASSWORD: ${{ secrets.SQL_password }}
       run: Powershell .\SQlServerStatus.ps1
