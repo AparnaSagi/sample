@@ -45,8 +45,8 @@ $colorTagTable = @{
                    } 
 
 
-$userid= ${{ secrets.SQL_username }}
-$Password= ${{ secrets.SQL_password }}
+$userid= $($env:SQL_USERNAME)
+$Password= $($env:SQL_PASSWORD)
 #$userid= $cred.username
 #$password=$cred.GetNetworkCredential().password
 ##Create a string variable with all our connection details 
