@@ -11,7 +11,7 @@ jobs:
       db_user: ${{ secrets.SQL_username }}
       db_password: ${{ secrets.SQL_password }}
       database: AdventureWorks2016
-      DB_SERVER: twsql2b
+      DB_SERVER: twsqlcl2a
     steps:
     - name: Checkout the source code
       uses: actions/checkout@v2
