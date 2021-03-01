@@ -8,8 +8,6 @@ jobs:
   build:
     runs-on: self-hosted
     env:
-      db_user: ${{ secrets.SQL_username }}
-      db_password: ${{ secrets.SQL_password }}
       database: AdventureWorks2016
       DB_SERVER: twsqlcl2a
     steps:
@@ -17,4 +15,4 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Restoring the database
-      run: sqlpackage /Action:Import /sf:${{github.workspace}}\AdventureWorks2016.dacpac /tsn:${{env.DB_SERVER}} /tdn:${{env.database}} /tu:${{env.db_user}} /tp:${{ env.db_password }} /p:DatabaseMaximumSize=2 /p:DatabaseEdition=Basic
+      run: sqlpackage /Action:Extract /Tf:${{github.workspace}}\AdventureWorks2016.dacpac /ssn:${{env.DB_SERVER}} /sdn:${{env.database}} 
