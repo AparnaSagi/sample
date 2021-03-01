@@ -14,5 +14,5 @@ jobs:
 
     - name: Working Directory 
       run: cd C:\Program Files\Microsoft SQL Server\150\DAC\bin
-    - name: Extrcting dacpac
+    - name: Extrct dacpac file to target loction
       run: sqlpackage /Action:Extract /Tf:${{github.workspace}}\AdventureWorks2016.dacpac /ssn:${{env.DB_SERVER}} /sdn:${{env.database}} 
