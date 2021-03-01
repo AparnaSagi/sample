@@ -1,9 +1,10 @@
 name: Extracting dacpac 
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
 on:
   workflow_dispatch:
+defaults:
+  run:
+    working-directory: C:\Program Files\Microsoft SQL Server\150\DAC\bin
 jobs:
   build:
     runs-on: self-hosted
@@ -14,5 +15,5 @@ jobs:
     - name: Checkout the source code
       uses: actions/checkout@v2
 
-    - name: Restoring the database
+    - name: Extracting Dacpac 
       run: sqlpackage /Action:Extract /Tf:${{github.workspace}}\AdventureWorks2016.dacpac /ssn:${{env.DB_SERVER}} /sdn:${{env.database}} 
