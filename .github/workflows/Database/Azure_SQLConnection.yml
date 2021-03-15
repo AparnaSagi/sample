@@ -14,10 +14,10 @@ build:
     with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
      - uses: azure/sql-action@v1
-      with:
+       with:
         server-name: srvr-azurepoc-2.database.windows.net
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        #dacpac-package: './Database.dacpac'
+        dacpac-package: './AdventureWork2019.dacpac'
 
     # Azure logout 
 - name: logout
